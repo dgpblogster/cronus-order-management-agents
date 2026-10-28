@@ -1,0 +1,21 @@
+﻿{
+  "connectorid": "bf4af3c0-1e30-4824-bb0c-02c693ae513b",
+  "name": "cr83a_5Fcronus-20master-20mcp-20server",
+  "displayname": "Cronus Master MCP Server",
+  "description": "Read-only tools for CRONUS USA business data: customer records, credit profiles, product pricing, inventory across warehouses, and order history. Use these tools to look up structured business facts.",
+  "connectorinternalid": "shared_cr83a-5Fcronus-20master-20mcp-20server-5F7199f3b02d147dce",
+  "openapidefinition": "connectors/cr83a_5Fcronus-20master-20mcp-20server-bf4af3c0-1e30-4824-bb0c-02c693ae513b/openapidefinition.json",
+  "connectionparameters": "connectors/cr83a_5Fcronus-20master-20mcp-20server-bf4af3c0-1e30-4824-bb0c-02c693ae513b/connectionparameters.json",
+  "connectionparametersets": null,
+  "policytemplateinstances": "connectors/cr83a_5Fcronus-20master-20mcp-20server-bf4af3c0-1e30-4824-bb0c-02c693ae513b/policytemplateinstances.json",
+  "iconbrandcolor": null,
+  "iconblob": "connectors/cr83a_5Fcronus-20master-20mcp-20server-bf4af3c0-1e30-4824-bb0c-02c693ae513b/iconblob.png",
+  "connectortype": 1,
+  "statecode": 0,
+  "statuscode": 1,
+  "ismanaged": false,
+  "componentstate": 0,
+  "createdon": "2026-05-12T21:40:51Z",
+  "modifiedon": "2026-05-12T21:40:51Z",
+  "versionnumber": 27384994
+}

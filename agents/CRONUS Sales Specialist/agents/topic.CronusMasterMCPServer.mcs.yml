@@ -1,0 +1,22 @@
+mcs.metadata:
+  componentName: Cronus Master MCP Server
+  description: "Read-only tools for CRONUS USA business data: customer records, credit profiles, product pricing, inventory across warehouses, and order history. Use these tools to look up structured business facts."
+kind: TaskDialog
+modelDisplayName: Cronus Master MCP Server
+modelDescription: "Read-only tools for CRONUS USA business data: customer records, credit profiles, product pricing, inventory across warehouses, and order history. Use these tools to look up structured business facts."
+action:
+  kind: InvokeExternalAgentTaskAction
+  connectionReference: cr83a_cronusSalesContextAssistant.shared_cr83a-5fcronus-20master-20mcp-20server-5f7199f3b02d147dce.05f79f56eb544fa3a97dcc4b93e53e6a
+  connectionProperties:
+    mode: Invoker
+
+  operationDetails:
+    kind: ModelContextProtocolMetadata
+    operationId: InvokeServer
+    tools:
+      kind: UseSpecificTools
+      tools:
+        - search_customer
+        - get_customer_details
+        - get_customer_pricing
+        - get_order_history

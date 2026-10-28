@@ -1,0 +1,30 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Cronus Master MCP Server",
+    "description": "Read-only tools for CRONUS USA business data: customer records, credit profiles, product pricing, inventory across warehouses, and order history. Use these tools to look up structured business facts.",
+    "version": "1.0.0"
+  },
+  "host": "YOUR-MCP-HOST.example.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/mcp": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Immediate Response"
+          }
+        },
+        "x-ms-agentic-protocol": "mcp-streamable-1.0",
+        "operationId": "InvokeServer",
+        "summary": "Cronus Master MCP Server",
+        "description": "Read-only tools for CRONUS USA business data: customer records, credit profiles, product pricing, inventory across warehouses, and order history. Use these tools to look up structured business facts."
+      }
+    }
+  },
+  "securityDefinitions": {},
+  "security": []
+}

@@ -1,0 +1,11 @@
+mcs.metadata:
+  componentName: CRONUS Inventory Specialist
+  description: Provides inventory availability and fulfillment plans for CRONUS USA, Inc. across MAIN, EAST, and WEST warehouses.
+kind: TaskDialog
+modelDisplayName: CRONUS Inventory Specialist
+modelDescription: Provides inventory availability and fulfillment plans for CRONUS USA, Inc. across MAIN, EAST, and WEST warehouses.
+action:
+  kind: InvokeConnectedAgentTaskAction
+  botSchemaName: cr83a_inventoryFulfillmentSpecialist
+  historyType:
+    kind: ConversationHistory

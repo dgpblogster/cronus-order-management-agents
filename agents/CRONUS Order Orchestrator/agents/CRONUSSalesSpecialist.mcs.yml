@@ -1,0 +1,11 @@
+mcs.metadata:
+  componentName: CRONUS Sales Specialist
+  description: Provides accurate customer context for CRONUS USA, Inc., including customer identification, pricing details, and order patterns without making credit or inventory commitments.
+kind: TaskDialog
+modelDisplayName: CRONUS Sales Specialist
+modelDescription: Provides accurate customer context for CRONUS USA, Inc., including customer identification, pricing details, and order patterns without making credit or inventory commitments.
+action:
+  kind: InvokeConnectedAgentTaskAction
+  botSchemaName: cr83a_cronusSalesContextAssistant
+  historyType:
+    kind: ConversationHistory

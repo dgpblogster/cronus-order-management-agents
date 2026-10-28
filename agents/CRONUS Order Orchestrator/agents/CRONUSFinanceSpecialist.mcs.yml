@@ -1,0 +1,11 @@
+mcs.metadata:
+  componentName: CRONUS Finance Specialist
+  description: Evaluates customer credit standing and provides clear credit recommendations with full exposure math for CRONUS USA, Inc.
+kind: TaskDialog
+modelDisplayName: CRONUS Finance Specialist
+modelDescription: Evaluates customer credit standing and provides clear credit recommendations with full exposure math for CRONUS USA, Inc.
+action:
+  kind: InvokeConnectedAgentTaskAction
+  botSchemaName: cr83a_financeCreditEvaluator
+  historyType:
+    kind: ConversationHistory

@@ -1,0 +1,26 @@
+displayName: CRONUS Order Orchestrator
+schemaName: cr83a_orderQualificationAssistant
+accessControlPolicy: GroupMembership
+authenticationMode: Integrated
+authenticationTrigger: Always
+configuration:
+  settings:
+    GenerativeActionsEnabled: true
+
+  isAgentConnectable: true
+  gPTSettings:
+    defaultSchemaName: cr83a_orderQualificationAssistant.gpt.default
+
+  aISettings:
+    useModelKnowledge: true
+    isFileAnalysisEnabled: true
+    isSemanticSearchEnabled: true
+    contentModeration: Low
+    optInUseLatestModels: false
+
+  recognizer:
+    kind: GenerativeAIRecognizer
+
+publishedOn: 2026-05-13T04:56:29.0000000Z
+template: default-2.1.0
+language: 1033
