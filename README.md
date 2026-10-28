@@ -5,9 +5,10 @@ A four-agent Microsoft Copilot Studio multi-agent setup, exported from a live en
 business data through a single shared MCP server.
 
 It was built for a conference demo against CRONUS USA, Inc., the standard Microsoft Dynamics
-demo company, and it is published here as the worked sample behind the Copilot Studio
-multi-agent posts on [The Workbench](https://www.theworkbench.blog), and as the filled-in
-example in [connected-agent-access](https://github.com/dgpblogster/connected-agent-access).
+demo company, and it is published here as the worked sample behind
+[Works on My Agent, the New "Works on My Computer"](https://www.theworkbench.blog) on
+[The Workbench](https://www.theworkbench.blog), and as the filled-in example in
+[connected-agent-access](https://github.com/dgpblogster/connected-agent-access).
 
 The point of shipping it is not the agents. It is that the exported definitions record several
 access facts the maker portal does not show you.
