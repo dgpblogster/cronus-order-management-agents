@@ -29,8 +29,9 @@ agent pointing at it breaks until you edit the connector.
 
 ## Route 2: host it
 
-Azure SQL Database for the data, plus somewhere to run the Node server (App Service, Container
-Apps, Functions). This is the route if the agents need to work when your laptop is shut.
+Somewhere to run the Node server (App Service, Container Apps, Functions) and a database it can
+reach. This is the route if the agents need to work when your laptop is shut. Azure SQL is the
+easy pairing, but nothing here requires it: the server takes a connection string.
 
 The work is mostly not the hosting:
 
@@ -86,8 +87,27 @@ around it, which is the whole recommendation in
 That is a rewrite, not a migration, and it is not done here. It is the honest answer to "should
 this be a custom server at all."
 
+### None of that requires moving to Azure SQL
+
+Worth stating plainly, because the names make it sound like a cloud-only answer. Data API
+builder is open source and free, and its documentation describes the server as **self hosted**,
+able to run locally through the DAB command line, reaching a database over a connection string.
+Its own quickstart connects to `Server=localhost`.
+
+SQL Server 2025's **What's new** list carries SQL MCP Server under Developer, linking to that
+same Data API builder documentation, so there is no separate on-premises SQL Server MCP server
+to go looking for. The feature-availability matrix marks **Stored Procedure as Tool** and
+**Custom MCP Tools** as supported for MSSQL, which is the capability the argument above depends
+on.
+
+What on-premises does not change is reach. Copilot Studio still needs an HTTPS endpoint it can
+get to, so Route 1 or Route 2 still applies whether the database is in Azure SQL or in your own
+rack. Moving the grant to the server is a governance decision, not a migration.
+
 ## Sources
 
 - [Add a Model Context Protocol (MCP) server to your agent as a tool](https://learn.microsoft.com/microsoft-copilot-studio/agents-experience/tools-add-mcp-server)
 - [What is SQL MCP Server?](https://learn.microsoft.com/azure/data-api-builder/mcp/overview)
 - [Azure MCP Server tools for Azure SQL Database](https://learn.microsoft.com/azure/developer/azure-mcp-server/tools/azure-sql)
+- [What's new in SQL Server 2025](https://learn.microsoft.com/sql/sql-server/what-s-new-in-sql-server-2025?view=sql-server-ver17#developer)
+- [Feature availability for Data API builder](https://learn.microsoft.com/azure/data-api-builder/feature-availability#mcp-server)
