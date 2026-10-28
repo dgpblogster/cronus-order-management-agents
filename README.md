@@ -146,6 +146,13 @@ Copilot Studio. Finance cannot call `get_inventory`; anyone holding the endpoint
 The grant is client-side. For a laptop demo behind a tunnel you close afterwards that is a fair
 trade, and as a pattern to copy it is not.
 
+Note also that Copilot Studio cannot reach `localhost`, so running this yourself means a dev
+tunnel or real hosting. [mcp-server/DEPLOYMENT.md](mcp-server/DEPLOYMENT.md) covers both, plus
+the case for replacing the custom server with **SQL MCP Server** (Data API builder), whose
+per-entity and per-field RBAC would move the grant to the server side and close the hole
+described above. The Azure MCP Server's `sql` tools, worth saying because it is the first thing
+people reach for, are control-plane only and cannot read your rows.
+
 ## The database
 
 [sql/cronus-demo.sql](sql/cronus-demo.sql) recreates what the server reads: six tables and all

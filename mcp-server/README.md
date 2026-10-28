@@ -90,14 +90,20 @@ never matched.
 
 ## Exposing it to Copilot Studio
 
-The agents in this repository were pointed at this server through a VS Code dev tunnel, which
-is why their connector definition carries a `devtunnels.ms` hostname in the original export. In
-the published copy that host is replaced with `YOUR-MCP-HOST.example.com`, so substitute your
-own before importing the agents.
+**Copilot Studio cannot reach `localhost`.** Its Add MCP server dialog takes "the HTTPS endpoint
+of the MCP server," and Copilot Studio is a cloud service, so running this server for an agent
+means tunnelling it or hosting it. The agents here were pointed at a VS Code dev tunnel, which
+is why their connector definition carries a `devtunnels.ms` hostname in the original export; in
+the published copy it reads `YOUR-MCP-HOST.example.com`, so substitute your own before importing.
 
-If you use a dev tunnel, note that an anonymous tunnel plus a server with no authentication adds
-up to an endpoint anyone with the URL can query. Prefer a tunnel that requires sign-in, and
-close it when the demo is over.
+If you tunnel, do not make the tunnel anonymous. An anonymous tunnel in front of a server with
+no authentication is an open endpoint. Prefer one that requires sign-in, and close it afterwards.
+
+[DEPLOYMENT.md](DEPLOYMENT.md) covers the three routes in full: dev tunnel, hosting it on Azure
+properly, and the question of whether this should be a custom server at all. The short version
+of that last one: the Azure MCP Server's `sql` tools are control-plane and cannot read your rows,
+while **SQL MCP Server** (Data API builder) can and would move the per-agent grant from Copilot
+Studio to the server, where it belongs. It is a rewrite rather than a migration.
 
 ## License
 
