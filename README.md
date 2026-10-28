@@ -131,10 +131,39 @@ This topology runs on the **standard harness**. Microsoft's connected-agents how
 for the GitHub Copilot harness and names that harness in its prerequisites for both parent and
 child, so harness-specific claims are worth checking against the experience you are actually in.
 
-## Pointing it at your own MCP server
+## The MCP server
 
-The agents were built against an MCP server running on the author's machine through a dev
-tunnel. That hostname has been replaced in this export with `YOUR-MCP-HOST.example.com`, in:
+It is in [mcp-server/](mcp-server), so this repository is the whole demo rather than half of it:
+a TypeScript server exposing eight read-only tools over a SQL Server database of CRONUS demo
+data, speaking MCP over stdio or HTTP.
+
+Read [its README](mcp-server/README.md) before running it. The short version, and the finding
+the three tool grants above are only half of: **the server implements no authentication.** No
+API key, no token. The connector agrees, declaring `securityDefinitions: {}` and `security: []`
+and sending no credential. So the disjoint grants are real and they are enforced entirely by
+Copilot Studio. Finance cannot call `get_inventory`; anyone holding the endpoint URL can.
+
+The grant is client-side. For a laptop demo behind a tunnel you close afterwards that is a fair
+trade, and as a pattern to copy it is not.
+
+## The database
+
+[sql/cronus-demo.sql](sql/cronus-demo.sql) recreates what the server reads: six tables and all
+59 rows of fictional CRONUS data, extracted from the live demo database with
+`INFORMATION_SCHEMA` and `sys` rather than reconstructed by hand, and verified by running it
+into a throwaway database and re-running one of the server's own queries against the result.
+
+```bash
+sqlcmd -S localhost -d Cronus -i sql/cronus-demo.sql
+```
+
+Not a Business Central database. A small purpose-built schema, which is what let the demo answer
+order-qualification questions without a BC environment in the room.
+
+## Pointing it at your own host
+
+The agents were built against that server running on the author's machine through a dev tunnel.
+The hostname has been replaced in this export with `YOUR-MCP-HOST.example.com`, in:
 
 ```text
 agents/CRONUS <name> Specialist/connectors/cr83a_.../openapidefinition.json
@@ -154,17 +183,19 @@ publish these eight read-only tools over CRONUS data:
 | `get_inventory` | Inventory |
 | `check_availability` | Inventory |
 
-The MCP server itself is not part of this repository.
-
 ## What is and is not in this export
 
 **Included:** the agent definitions, instructions, settings, topics, connected-agent
-declarations, connection references, and the custom connector definition, for all four agents.
+declarations, connection references, and the custom connector definition, for all four agents,
+plus the MCP server source in [mcp-server/](mcp-server) and its database in [sql/](sql). The
+whole demo, in other words.
 
 **Excluded on purpose:** the `.mcs/` local sync-state folders that `pac copilot clone` writes
 alongside each agent. They carry environment and organization identifiers, connection instance
 IDs, and credential material, none of which belongs in a public repository. If you clone your
-own agents and intend to publish them, exclude `.mcs/` and check what is left.
+own agents and intend to publish them, exclude `.mcs/` and check what is left. The server's
+`.env` is excluded for the same reason, and `.env.sample` lists every key the code reads and
+nothing else.
 
 **Not exercised:** the sharing behavior. Nobody signed in as a second, non-owner user and walked
 the path, which is the one test that actually settles whether a connected-agent setup is shared
